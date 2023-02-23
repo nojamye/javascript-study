@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form>
+      <label>Name:</label>
+      <input type="text" id="name-input" />
+      <br />
+      <label>Email:</label>
+      <input type="email" id="email-input" />
+    </form>
+
+    <div>
+      <p>Name: <span id="name-output"></span></p>
+      <p>Email: <span id="email-output"></span></p>
+    </div>
+
+    <script>
+      const formData = {
+        name: "",
+        email: "",
+      };
+
+      const nameInput = document.getElementById("name-input");
+      const emailInput = document.getElementById("email-input");
+      const nameOutput = document.getElementById("name-output");
+      const emailOutput = document.getElementById("email-output");
+
+      nameInput.addEventListener("input", (event) => {
+        formData.name = event.target.value;
+        updateView();
+      });
+
+      emailInput.addEventListener("input", (event) => {
+        formData.email = event.target.value;
+        updateView();
+      });
+
+      function updateView() {
+        nameInput.value = formData.name;
+        emailInput.value = formData.email;
+        nameOutput.textContent = formData.name;
+        emailOutput.textContent = formData.email;
+      }
+    </script>
+  </body>
+</html>
